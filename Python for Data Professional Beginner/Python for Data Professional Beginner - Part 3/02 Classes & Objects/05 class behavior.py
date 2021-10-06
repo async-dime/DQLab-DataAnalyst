@@ -13,7 +13,7 @@ class Karyawan:
     	self.pendapatan_tambahan += insentif_proyek
     def total_pendapatan(self):
     	return self.pendapatan + self.pendapatan_tambahan
-# Buat object dari karwayan bernama Aksara dan Senja
+# Buat object dari karyawan bernama Aksara dan Senja
 aksara = Karyawan('Aksara', 25, 8500000)
 senja = Karyawan('Senja', 28, 12500000)
 # Aksara melaksanakan lembur
