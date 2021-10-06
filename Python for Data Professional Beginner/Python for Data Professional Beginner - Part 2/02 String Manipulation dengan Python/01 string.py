@@ -1,0 +1,14 @@
+nama_produk = "Sepatu Niko"
+
+nama_produk = nama_produk[:2] + "P" + nama_produk[3:9] + "K" + nama_produk[-1]
+print(nama_produk)
+# output: SePatu NiKo
+
+print(nama_produk[:7])
+# output: SePatu
+
+print(nama_produk[7:])
+# output: NiKo
+
+print(len(nama_produk))
+# output: 11
