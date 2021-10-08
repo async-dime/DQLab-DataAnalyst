@@ -1,0 +1,2 @@
+- Dari daftar berikut, mana saja yang merupakan nama dari RDBMS:
+  - [x] PostgreSQL, MariaDB, SQLite, OracleDB

@@ -1,0 +1,2 @@
+- Mana urutan hirarki yang benar?
+  - [x] Database --> Tabel --> Kolom

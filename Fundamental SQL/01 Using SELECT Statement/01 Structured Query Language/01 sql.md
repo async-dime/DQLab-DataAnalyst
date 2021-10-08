@@ -1,0 +1,2 @@
+- Quiz: Apa singkatan dari SQL?
+  - [x] Structured Query Language
