@@ -1,0 +1,2 @@
+Jadi, manakah yang merupakan key kolom dari kedua tabel tr_penjualan dan ms_produk tersebut untuk digunakan dalam INNER JOIN?"
+  - [X] kode_produk dari tabel tr_penjualan dengan kode_produk dari tabel ms_produk
