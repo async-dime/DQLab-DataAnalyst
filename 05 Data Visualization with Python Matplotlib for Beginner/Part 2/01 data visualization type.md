@@ -7,7 +7,7 @@ Ada banyak sekali jenis visualisasi data, dari yang sederhana hingga yang komple
 
 **Berikut penjelasannya:**
 
-**1.  Perbandingan/Komparasi**  
+**1. Perbandingan/Komparasi**  
     Jika ingin membandingkan suatu sekumpulan nilai dengan nilai lainnya, ingin melihat mana yang lebih besar, mana yang lebih tinggi, mana yang naik, dsb. Untuk data yang terkait dengan waktu, visualisasi yang digunakan biasanya berupa line-chart. Sedangkan, jika yang dibandingkan adalah kategorikal, maka lebih cocok menggunakan bar-chart.
 
 **2. Distribusi**  
