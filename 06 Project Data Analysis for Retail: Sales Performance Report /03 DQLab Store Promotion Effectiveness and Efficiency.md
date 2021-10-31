@@ -1,27 +1,25 @@
-/*
-Promotion Effectiveness and Efficiency by Years
+# Promotion Effectiveness and Efficiency by Years
 
-Pada bagian ini kita akan melakukan analisa terhadap efektifitas dan efisiensi dari promosi yang sudah dilakukan selama ini
+Pada bagian ini kita akan melakukan analisa terhadap efektifitas dan efisiensi dari promosi yang sudah dilakukan selama ini  
 
-Efektifitas dan efisiensi dari promosi yang dilakukan akan dianalisa berdasarkan Burn Rate 
-yaitu dengan membandigkan total value promosi yang dikeluarkan terhadap total sales yang diperoleh
+Efektifitas dan efisiensi dari promosi yang dilakukan akan dianalisa berdasarkan Burn Rate yaitu dengan membandigkan total value promosi yang dikeluarkan terhadap total sales yang diperoleh  
 
-DQLab berharap bahwa burn rate tetap berada diangka maskimum 4.5%
+DQLab berharap bahwa burn rate tetap berada diangka maskimum 4.5%  
 
-Formula untuk burn rate : (total discount / total sales) * 100
+Formula untuk burn rate : `(total discount / total sales) * 100`
 
-Buatkan Derived Tables untuk menghitung total sales (sales) dan total discount (promotion_value) berdasarkan tahun(years) 
-dan formulasikan persentase burn rate nya (burn_rate_percentage).
-*/
+Buatkan Derived Tables untuk menghitung total sales (sales) dan total discount (promotion_value) berdasarkan tahun(years) dan formulasikan persentase burn rate nya (burn_rate_percentage).
 
+### answer:
+```sh
 SELECT YEAR(order_date) as years, SUM(sales) as sales, SUM(discount_value) as promotion_value, ROUND((SUM(discount_value)/SUM(sales))*100,2) as burn_rate_percentage
 FROM dqlab_sales_store
 WHERE order_status = 'Order Finished'
 GROUP BY YEAR(order_date)
+```
 
-/*
-output:
-
+### output:
+```sh
 +-------+------------+-----------------+----------------------+
 | years | sales      | promotion_value | burn_rate_percentage |
 +-------+------------+-----------------+----------------------+
@@ -30,31 +28,37 @@ output:
 |  2011 | 4112036186 |       214611556 |                 5.22 |
 |  2012 | 4482983158 |       225867642 |                 5.04 |
 +-------+------------+-----------------+----------------------+
-*/
+```
 
 
 ---------------------------------------------------------------------------------------------------------
 
 
-/*
-Promotion Effectiveness and Efficiency by Product Sub Category
+# Promotion Effectiveness and Efficiency by Product Sub Category
 
-Pada bagian ini kita akan melakukan analisa terhadap efektifitas dan efisiensi dari promosi yang sudah dilakukan selama ini seperti pada bagian sebelumnya. 
+Pada bagian ini kita akan melakukan analisa terhadap efektifitas dan efisiensi dari promosi yang sudah dilakukan selama ini seperti pada bagian sebelumnya.  
 
-Akan tetapi, ada kolom yang harus ditambahkan, yaitu : product_sub_category dan product_category
+Akan tetapi, ada kolom yang harus ditambahkan, yaitu : product_sub_category dan product_category  
 
 Data yang ditampilkan hanya untuk tahun 2012
-*/
 
-SELECT YEAR(order_date) as years, product_sub_category, product_category, SUM(sales) as sales, SUM(discount_value) as promotion_value, ROUND((SUM(discount_value)/SUM(sales))*100,2) as burn_rate_percentage
+### answer:
+```sh
+SELECT 
+  YEAR(order_date) as years, 
+  product_sub_category, 
+  product_category, 
+  SUM(sales) as sales, 
+  SUM(discount_value) as promotion_value, 
+  ROUND((SUM(discount_value)/SUM(sales))*100,2) as burn_rate_percentage
 FROM dqlab_sales_store
 WHERE order_status = 'Order Finished' and YEAR(order_date) in ('2012')
 GROUP BY YEAR(order_date), product_sub_category, product_category
 ORDER BY YEAR(order_date),SUM(sales) DESC
+```
 
-/*
-output:
-
+### output:
+```sh
 +-------+--------------------------------+------------------+-----------+-----------------+----------------------+
 | years | product_sub_category           | product_category | sales     | promotion_value | burn_rate_percentage |
 +-------+--------------------------------+------------------+-----------+-----------------+----------------------+
@@ -76,4 +80,4 @@ output:
 |  2012 | Labels                         | Office Supplies  |  10007040 |          452245 |                 4.52 |
 |  2012 | Rubber Bands                   | Office Supplies  |   3837880 |          117324 |                 3.06 |
 +-------+--------------------------------+------------------+-----------+-----------------+----------------------+
-*/
+```

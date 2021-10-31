@@ -1,17 +1,17 @@
-/*
-Overall Performance by Year
+# Overall Performance by Year
 
 Buatlah Query dengan menggunakan SQL untuk mendapatkan total penjualan (sales) dan jumlah order (number_of_order) dari tahun 2009 sampai 2012 (years). 
-*/
 
+### answer:
+```sh
 SELECT YEAR(order_date) as years, SUM(sales) as sales, COUNT(order_quantity) as number_of_order
 FROM dqlab_sales_store
 WHERE order_status = 'Order Finished'
 GROUP BY YEAR(order_date)
+```
 
-/*
-output:
-
+### output:
+```sh
 +-------+------------+-----------------+
 | years | sales      | number_of_order |
 +-------+------------+-----------------+
@@ -20,27 +20,28 @@ output:
 |  2011 | 4112036186 |            1178 |
 |  2012 | 4482983158 |            1254 |
 +-------+------------+-----------------+
-*/
+```
+
 
 
 ---------------------------------------------------------------------------------------------------------
 
 
-/*
-Overall Performance by Product Sub Category
+# Overall Performance by Product Sub Category
 
 Buatlah Query dengan menggunakan SQL untuk mendapatkan total penjualan (sales) berdasarkan sub category dari produk (product_sub_category) pada tahun 2011 dan 2012 saja (years) 
-*/
 
+### answer: 
+```sh
 SELECT YEAR(order_date) as years, product_sub_category, SUM(sales) as sales
 FROM dqlab_sales_store
 WHERE order_status = 'Order Finished' and YEAR(order_date) in (2011, 2012)
 GROUP BY YEAR(order_date), product_sub_category
 ORDER BY YEAR(order_date),SUM(sales) DESC
+```
 
-/*
-output:
-
+### output:
+```sh
 +-------+--------------------------------+------------+
 | years | product_sub_category           | SUM(sales) |
 +-------+--------------------------------+------------+
@@ -79,4 +80,4 @@ output:
 |  2012 | Labels                         |   10007040 |
 |  2012 | Rubber Bands                   |    3837880 |
 +-------+--------------------------------+------------+
-*/
+```
