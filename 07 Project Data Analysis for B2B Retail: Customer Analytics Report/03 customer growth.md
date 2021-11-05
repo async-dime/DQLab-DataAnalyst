@@ -8,7 +8,7 @@ Penambahan jumlah customers dapat diukur dengan membandingkan total jumlah custo
   5. Kelompokkan total_customer berdasarkan kolom “quarter”, dan jangan lupa menambahkan kolom ini pada bagian select.
 
 ### answer: 
-```sh
+```sql
 SELECT quarter, COUNT(customerID) as total_customers 
 FROM (
   SELECT customerID, createDate, '1' as quarter
@@ -21,7 +21,7 @@ GROUP BY quarter;
 ```
 
 ### output:
-```sh
+```
 +---------+-----------------+
 | quarter | total_customers |
 +---------+-----------------+
@@ -46,7 +46,7 @@ Problem ini merupakan kelanjutan dari problem sebelumnya yaitu dari sejumlah cus
   7. Kelompokkan total_customer berdasarkan kolom “quarter”, dan jangan lupa menambahkan kolom ini pada bagian select.
 
 ### answer: 
-```sh
+```sql
 SELECT quarter, COUNT(DISTINCT customerID) as total_customers 
 FROM (
   SELECT customerID, createDate, QUARTER(createDate) as quarter
@@ -62,7 +62,7 @@ GROUP BY quarter;
 ```
 
 ### output:
-```sh
+```
 +---------+-----------------+
 | quarter | total_customers |
 +---------+-----------------+
@@ -87,7 +87,7 @@ Untuk mengetahui kategori produk yang paling banyak dibeli, maka dapat dilakukan
   7. Urutkan berdasarkan “total_order” dari terbesar ke terkecil
 
 ### answer:
-```sh
+```sql
 SELECT * FROM (
   SELECT categoryID, COUNT(DISTINCT orderNumber) AS total_order, SUM(quantity) AS total_penjualan
   FROM (
@@ -100,7 +100,7 @@ SELECT * FROM (
 ```
 
 ### output:
-```sh
+```
 +------------+-------------+-----------------+
 | categoryID | total_order | total_penjualan |
 +------------+-------------+-----------------+
@@ -130,7 +130,7 @@ Oleh karena baru terdapat 2 periode yang Quarter 1 dan Quarter 2, maka retention
   4. Hitunglah jumlah unik customers (tidak ada duplikasi customers) dibagi dengan total_ customers dalam percentage, pada Select statement dan beri nama “Q2”
 
 ### answer:
-```sh
+```sql
 #Menghitung total unik customers yang transaksi di quarter_1
 SELECT COUNT(DISTINCT customerID) as total_customers FROM orders_1;
 #output = 25
@@ -140,7 +140,7 @@ WHERE customerID IN (SELECT DISTINCT customerID FROM orders_2);
 ```
 
 ### output:
-```sh
+```
 +-----------------+
 | total_customers |
 +-----------------+

@@ -6,7 +6,7 @@
   - Lakukan Langkah 1 & 2, untuk tabel orders_2.
 
 ### answer: 
-```sh
+```sql
 SELECT SUM(quantity) as total_penjualan, SUM(quantity*priceEach) as revenue
 FROM orders_1
 WHERE status = 'Shipped';
@@ -16,7 +16,7 @@ WHERE status = 'Shipped';
 ```
 
 ### output:
-```sh
+```
 +-----------------+-----------+
 | total_penjualan | revenue   |
 +-----------------+-----------+
@@ -44,19 +44,23 @@ Kedua tabel orders_1 dan orders_2 masih terpisah, untuk menghitung persentasi ke
   - Kelompokkan total_penjualan berdasarkan kolom “quarter”, dan jangan lupa menambahkan kolom ini pada bagian select.
 
 ### answer:
-```sh
-SELECT quarter, SUM(quantity) as total_penjualan, SUM(quantity*priceEach) as revenue
-FROM (SELECT orderNumber, status, quantity, priceEach, '1' as quarter
-FROM orders_1
-UNION
-SELECT orderNumber, status, quantity, priceEach, '2' as quarter
-FROM orders_2) as tabel_a
+```sql
+SELECT 
+  quarter, 
+  SUM(quantity) as total_penjualan, 
+  SUM(quantity*priceEach) as revenue
+FROM (
+  SELECT orderNumber, status, quantity, priceEach, '1' as quarter
+  FROM orders_1
+  UNION
+  SELECT orderNumber, status, quantity, priceEach, '2' as quarter
+  FROM orders_2) as tabel_a
 WHERE status = 'Shipped'
 GROUP BY quarter;
 ```
 
 ### output:
-```sh
+```
 +---------+-----------------+-----------+
 | quarter | total_penjualan | revenue   |
 +---------+-----------------+-----------+
@@ -70,7 +74,7 @@ GROUP BY quarter;
 
 # Perhitungan Growth Penjualan dan Revenue
 
-```sh
+```
 %Growth Penjualan = (6717 – 8694)/8694 = -22%
 %Growth Revenue = (607548320 – 799579310)/ 799579310 = -24%
 ``` 
