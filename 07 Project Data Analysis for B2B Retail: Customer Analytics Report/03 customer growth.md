@@ -16,7 +16,7 @@ FROM (
   UNION
   SELECT customerID, createDate, '2' as quarter
   FROM customer WHERE createDate BETWEEN '2004-04-01' and '2004-06-31'
-	) as tabel_b
+) as tabel_b
 GROUP BY quarter;
 ```
 
