@@ -4,13 +4,13 @@ Cobalah untuk mengimport dataset marketplace ABC dari order.csv dan disimpan ke 
 Notes : untuk dataset diinput dari link berikut "https://storage.googleapis.com/dqlab-dataset/order.csv".
 
 ### Jawaban:
-```sh
+```py
 import pandas as pd
 order_df = pd.read_csv("https://storage.googleapis.com/dqlab-dataset/order.csv")
 ```
 
 ### Output:
-```sh
+```py
 In [1]: import pandas as pd
         order_df = pd.read_csv("https://storage.googleapis.com/dqlab-dataset/order.csv")
 ```
