@@ -12,7 +12,7 @@ buatlah sebuah line chart dengan Matplotlib, yang menunjukkan jumlah pembeli har
 
 **Jawaban:**
 
-```sh
+```python
 # Import library yang dibutuhkan
 import datetime
 import pandas as pd

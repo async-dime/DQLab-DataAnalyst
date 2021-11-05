@@ -2,7 +2,7 @@
 
 Jika code berikut dijalankan,
 
-```sh
+```python
 dataset['new_column'] = dataset['item_price'].apply(lambda x: x*2)
 ```
 

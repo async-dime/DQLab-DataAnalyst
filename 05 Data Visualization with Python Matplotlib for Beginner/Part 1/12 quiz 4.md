@@ -2,7 +2,7 @@
 
 Untuk mengubah ukuran figure diperlukan keyword argument?
 
-```sh
+```py 
 plt.figure(___________=(15, 5))
 ```
 

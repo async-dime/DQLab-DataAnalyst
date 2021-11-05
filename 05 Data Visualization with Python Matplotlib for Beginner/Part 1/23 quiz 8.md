@@ -1,7 +1,7 @@
 # Quiz
 
 Apakah kegunaan dari *function*
-```sh
+```python
 plt.text( . . . ) ?
 ```
   - [X] Menambahkan text tambahan di plot grafik
