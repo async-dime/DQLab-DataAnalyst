@@ -3,15 +3,17 @@
 DQLab Store ingin mengetahui jumlah customer (number_of_customer) yang bertransaksi setiap tahun dari 2009 sampai 2012 (years).
 
 ### answer:
-```sh
-SELECT YEAR(order_date) as years, COUNT(DISTINCT customer) as number_of_customer
+```sql
+SELECT 
+  YEAR(order_date) as years, 
+  COUNT(DISTINCT customer) as number_of_customer
 FROM dqlab_sales_store
 WHERE order_status = 'Order Finished'
 GROUP BY YEAR(order_date)
 ```
 
 ### output:
-```sh
+```
 +-------+--------------------+
 | years | number_of_customer |
 +-------+--------------------+

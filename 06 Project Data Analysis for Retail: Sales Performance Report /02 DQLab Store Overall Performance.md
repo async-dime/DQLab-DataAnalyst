@@ -3,15 +3,19 @@
 Buatlah Query dengan menggunakan SQL untuk mendapatkan total penjualan (sales) dan jumlah order (number_of_order) dari tahun 2009 sampai 2012 (years). 
 
 ### answer:
-```sh
-SELECT YEAR(order_date) as years, SUM(sales) as sales, COUNT(order_quantity) as number_of_order
+```sql
+SELECT 
+	YEAR(order_date) as years, 
+	SUM(sales) as sales, 
+	COUNT(order_quantity) as number_of_order
 FROM dqlab_sales_store
 WHERE order_status = 'Order Finished'
-GROUP BY YEAR(order_date)
+GROUP BY years
+ORDER BY years;
 ```
 
 ### output:
-```sh
+```
 +-------+------------+-----------------+
 | years | sales      | number_of_order |
 +-------+------------+-----------------+
@@ -32,16 +36,22 @@ GROUP BY YEAR(order_date)
 Buatlah Query dengan menggunakan SQL untuk mendapatkan total penjualan (sales) berdasarkan sub category dari produk (product_sub_category) pada tahun 2011 dan 2012 saja (years) 
 
 ### answer: 
-```sh
-SELECT YEAR(order_date) as years, product_sub_category, SUM(sales) as sales
+```sql
+SELECT 
+	YEAR(order_date) as years, 
+	product_sub_category, 
+	SUM(sales) as sales
 FROM dqlab_sales_store
-WHERE order_status = 'Order Finished' and YEAR(order_date) in (2011, 2012)
-GROUP BY YEAR(order_date), product_sub_category
-ORDER BY YEAR(order_date),SUM(sales) DESC
+WHERE 
+	order_status = 'Order Finished' 
+	and 
+	YEAR(order_date) in (2011, 2012)
+GROUP BY years, product_sub_category
+ORDER BY years, sales DESC;
 ```
 
 ### output:
-```sh
+```
 +-------+--------------------------------+------------+
 | years | product_sub_category           | SUM(sales) |
 +-------+--------------------------------+------------+

@@ -11,7 +11,7 @@ Formula untuk burn rate : `(total discount / total sales) * 100`
 Buatkan Derived Tables untuk menghitung total sales (sales) dan total discount (promotion_value) berdasarkan tahun(years) dan formulasikan persentase burn rate nya (burn_rate_percentage).
 
 ### answer:
-```sh
+```sql
 SELECT YEAR(order_date) as years, SUM(sales) as sales, SUM(discount_value) as promotion_value, ROUND((SUM(discount_value)/SUM(sales))*100,2) as burn_rate_percentage
 FROM dqlab_sales_store
 WHERE order_status = 'Order Finished'
@@ -19,7 +19,7 @@ GROUP BY YEAR(order_date)
 ```
 
 ### output:
-```sh
+```
 +-------+------------+-----------------+----------------------+
 | years | sales      | promotion_value | burn_rate_percentage |
 +-------+------------+-----------------+----------------------+
@@ -43,7 +43,7 @@ Akan tetapi, ada kolom yang harus ditambahkan, yaitu : product_sub_category dan 
 Data yang ditampilkan hanya untuk tahun 2012
 
 ### answer:
-```sh
+```sql
 SELECT 
   YEAR(order_date) as years, 
   product_sub_category, 
@@ -58,7 +58,7 @@ ORDER BY YEAR(order_date),SUM(sales) DESC
 ```
 
 ### output:
-```sh
+```
 +-------+--------------------------------+------------------+-----------+-----------------+----------------------+
 | years | product_sub_category           | product_category | sales     | promotion_value | burn_rate_percentage |
 +-------+--------------------------------+------------------+-----------+-----------------+----------------------+
