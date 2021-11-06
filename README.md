@@ -1,6 +1,6 @@
 # My Learning on DQLab - Data Analyst Track
 
-Course from Professional Academy Digital Talent Scholarship (DTS PRO) Batch 4 on DQLab Platform
+Course from Professional Academy Digital Talent Scholarship (DTS PRO) Batch 4, Data Analyst (DAQ3) Track on DQLab Platform
 
   - Python for Data Professional Beginner 1, 2, 3: Memahami konsep dasar bahasa pemrograman Python dengan syntax dan fungsi built in yang perlu dikuasai untuk melakukan pengolahan data. 
   - Fundamental SQL using Select Statement dan Function and Group By : Memahami konsep penggunaan statement SELECT dalam SQL Query untuk menarik data dari database dan melakukan pengolahan data  menggunakan fungsi skalar dan aggregate serta memahami pengelompokkan data untuk struktur pengambilan keputusan. 
